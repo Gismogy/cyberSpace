@@ -1,0 +1,5 @@
+{
+  "zsh": "~/.zshrc",
+  "bash": "~/.bashrc",
+  "myconfig": "~/myconfig.conf"
+}
