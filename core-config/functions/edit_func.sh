@@ -1,17 +1,12 @@
 function edit() {
+
+  echo "this function is not ready, exiting"
+  return
+
   local key=$1
   local json_name=$2
 
-  if [[ -z "$key" ]]; then
-    echo "Usage: edit <key> [json_file]"
-    return 1
-  fi
-
-  if [[ -z "$json_name" ]]; then
-    json_name="edit.json"  # default JSON file
-  fi
-
-  local json_file="$CS_CORE/jsonFiles/$json_name"
+  local json_file="$CS_json/edit.json"
   if [[ ! -f $json_file ]]; then
     echo "JSON config file not found: $json_file"
     return 1
@@ -23,6 +18,8 @@ function edit() {
     return 1
   fi
 
+  echo file_path
+
   file_path="${file_path/#\~/$HOME}"
-  ${EDITOR:-nano} "$file_path"
+  ${EDITOR:-nvim} "$file_path"
 }
