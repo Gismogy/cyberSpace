@@ -80,4 +80,4 @@ for func_file in "$CS_func"/*.sh; do
     source "$func_file"
 done
 
-echo "🎉 Ready to be used by you [OwO]"
+echo "Welcome Jenn, lets start the Chaos"
