@@ -1,0 +1,33 @@
+services:
+  web:
+    image: php:8.2-apache
+    container_name: php_web
+    volumes:
+      - ./php:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - db_php
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=webdevPHP
+      - DB_USER=root
+      - DB_PASSWORD=secret
+
+  db_php:
+    image: postgres:15
+    container_name: postgres_db_php
+    restart: always
+    environment:
+      POSTGRES_DB: webdevPHP
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  pgdata:
+  wordpress:
+  db_data:
